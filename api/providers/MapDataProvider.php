@@ -2,7 +2,7 @@
 
 namespace api\providers;
 
-use yii\base\Object;
+use yii\base\BaseObject;
 use yii\data\DataProviderInterface;
 use yii\data\Pagination;
 use yii\data\Sort;
@@ -15,7 +15,7 @@ use yii\data\Sort;
  * @property Sort|bool $sort
  * @property int $totalCount
  */
-class MapDataProvider extends Object implements DataProviderInterface
+class MapDataProvider extends BaseObject implements DataProviderInterface
 {
     private $next;
     private $callback;

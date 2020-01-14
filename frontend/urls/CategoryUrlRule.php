@@ -5,14 +5,14 @@ namespace frontend\urls;
 use shop\entities\Shop\Category;
 use shop\readModels\Shop\CategoryReadRepository;
 use yii\base\InvalidParamException;
-use yii\base\Object;
 use yii\caching\Cache;
+use yii\base\BaseObject;
 use yii\caching\TagDependency;
 use yii\helpers\ArrayHelper;
 use yii\web\UrlNormalizerRedirectException;
 use yii\web\UrlRuleInterface;
 
-class CategoryUrlRule extends Object implements UrlRuleInterface
+class CategoryUrlRule extends BaseObject implements UrlRuleInterface
 {
     public $prefix = 'catalog';
 

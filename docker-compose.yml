@@ -1,0 +1,36 @@
+version: '2'
+services:
+    new-vhost:
+        image: ci.chulakov.ru:5000/yii.php7.3.3.node.8.9.4 # ci.chulakov.ru:5000/php7node8
+        container_name: ${VIRTUAL_HOST_CONTAINER_NAME}
+        logging:
+            driver: "json-file"
+            options:
+                max-file: "2"
+                max-size: "5m"
+        restart: always
+        ports:
+            - ${VIRTUAL_PORT}:80
+        environment:
+            - VIRTUAL_HOST_CONTAINER_NAME=${VIRTUAL_HOST_CONTAINER_NAME}
+            - ENABLE_XDEBUG=1
+            - SKIP_CHOWN=1
+            - SKIP_COMPOSER=1                       # '${SKIP_COMPOSER}' #  Set to 1 to avoid installing composer
+            - XDEBUG_CONFIG=${XDEBUG_CONFIG}
+            - PHP_IDE_CONFIG=${PHP_IDE_CONFIG}
+            ### Domain name
+            - VIRTUAL_HOST=${VIRTUAL_HOST}
+        volumes:
+            - ./:/var/www/html
+            - ./docker/log:/var/www/log
+            # Mount git global options and RSA keys data
+            - ~/.ssh:/root/.ssh
+            # Mount home data and composre cache
+            - ./docker/home:/root/
+        networks:
+            - ng-proxy
+
+networks:
+    ng-proxy:
+        external:
+            name: ngproxy
