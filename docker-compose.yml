@@ -38,6 +38,16 @@ services:
         networks:
             - ng-proxy
 
+    redis:
+        image: redis:latest
+        ports:
+             - "6379:6379"
+        volumes:
+            - ./redis/etc/redis.conf:/usr/local/etc/redis/redis.conf
+            - ./redis/data:/data
+        networks:
+             - ng-proxy
+
 networks:
     ng-proxy:
         external:
