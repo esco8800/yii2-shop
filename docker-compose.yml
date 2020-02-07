@@ -30,6 +30,14 @@ services:
         networks:
             - ng-proxy
 
+    elasticsearch:
+        image: elasticsearch:6.5.0
+        ports:
+            - "9200:9200"
+            - "9300:9300"
+        networks:
+            - ng-proxy
+
 networks:
     ng-proxy:
         external:
