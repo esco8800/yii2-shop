@@ -34,4 +34,9 @@ phpunit.phar
 # vagrant runtime
 /.vagrant
 
-docker/*
+*.env
+!/environments/**/*.env
+
+# docker
+docker/home*
+docker/log*
