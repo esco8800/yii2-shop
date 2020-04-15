@@ -1,7 +1,7 @@
 version: '2'
 services:
     new-vhost:
-        image: ci.chulakov.ru:5000/yii.php7.3.3.node.8.9.4 # ci.chulakov.ru:5000/php7node8
+        build: docker/imgaes
         container_name: ${VIRTUAL_HOST_CONTAINER_NAME}
         logging:
             driver: "json-file"
@@ -31,20 +31,33 @@ services:
             - ng-proxy
 
     elasticsearch:
-        image: elasticsearch:6.5.0
+        image: docker.elastic.co/elasticsearch/elasticsearch:6.3.0
+        container_name: 'elastic-search'
+        restart: always
+        environment:
+            - discovery.type=single-node
+            - "discovery.zen.ping.unicast.hosts=elasticsearch"
+            - bootstrap.memory_lock=true
+            - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
         ports:
-            - "9200:9200"
-            - "9300:9300"
+            - 9200:9200
+            - 9300:9300
+#        working_dir: /app
+        volumes:
+            - ./:/var/www/html
+            - ./docker/data/elasticsearch:/usr/share/elasticsearch/data
         networks:
             - ng-proxy
 
     redis:
         image: redis:latest
+        restart: always
         ports:
              - "6379:6379"
         volumes:
-            - ./redis/etc/redis.conf:/usr/local/etc/redis/redis.conf
-            - ./redis/data:/data
+            - .docker/data/redis/etc/redis.conf:/usr/local/etc/redis/redis.conf
+            - .docker/data/redis:/data
+        command: redis-server --appendonly yes
         networks:
              - ng-proxy
 

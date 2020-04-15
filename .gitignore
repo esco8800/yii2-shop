@@ -38,5 +38,7 @@ phpunit.phar
 !/environments/**/*.env
 
 # docker
+docker/data/elasticsearch*
+docker/data/redis*
 docker/home*
 docker/log*

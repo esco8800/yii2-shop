@@ -32,13 +32,12 @@ class AdminController extends Controller
     public function actionCreate()
     {
         $username = $this->inputUsername('usernameValidator');
-        $name = $this->inputName();
         $email = $this->inputEmail();
         $password = $this->inputPassword();
 
         $transaction = User::getDb()->beginTransaction();
         try {
-            if ($this->makeUser($username, $name, $email, $password)) {
+            if ($this->makeUser($username, $email, $password)) {
                 $transaction->commit();
                 $this->printUserData($username, $password);
             } else {
@@ -85,21 +84,19 @@ class AdminController extends Controller
      * Создание нового пользователя
      *
      * @param string $username
-     * @param string $name
      * @param string $email
      * @param string $password
      * @return bool
      * @throws Exception
      */
-    protected function makeUser($username, $name, $email, $password)
+    protected function makeUser($username, $email, $password)
     {
-        $user = new User();
-        $user->setAttributes([
-            'username' => $username,
-            'email' => $email,
-            'name' => $name,
-        ]);
-        $user->setPassword($password);
+        $user = User::create(
+            $username,
+            $email,
+            '0000000000',
+            $password
+        );
         if ($user->save()) {
             $auth = \Yii::$app->authManager;
             $role = $auth->getRole($this->role);
