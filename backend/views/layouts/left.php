@@ -1,3 +1,7 @@
+<?php
+use backend\widgets\Menu;
+?>
+
 <aside class="main-sidebar">
 
     <section class="sidebar">
@@ -8,30 +12,29 @@
                 <img src="<?= $directoryAsset ?>/img/user2-160x160.jpg" class="img-circle" alt="User Image"/>
             </div>
             <div class="pull-left info">
-                <p>Alexander Pierce</p>
-
+                <p><?= \Yii::$app->user->identity->getUsername() ?></p>
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>
 
         <!-- search form -->
-        <form action="#" method="get" class="sidebar-form">
-            <div class="input-group">
-                <input type="text" name="q" class="form-control" placeholder="Search..."/>
-              <span class="input-group-btn">
-                <button type='submit' name='search' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i>
-                </button>
-              </span>
-            </div>
-        </form>
+<!--        <form action="#" method="get" class="sidebar-form">-->
+<!--            <div class="input-group">-->
+<!--                <input type="text" name="q" class="form-control" placeholder="Search..."/>-->
+<!--              <span class="input-group-btn">-->
+<!--                <button type='submit' name='search' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i>-->
+<!--                </button>-->
+<!--              </span>-->
+<!--            </div>-->
+<!--        </form>-->
         <!-- /.search form -->
 
-        <?= dmstr\widgets\Menu::widget(
+        <?= Menu::widget(
             [
-                'options' => ['class' => 'sidebar-menu'],
+                'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
                 'items' => [
                     ['label' => 'Management', 'options' => ['class' => 'header']],
-                        ['label' => 'Shop', 'icon' => 'folder', 'items' => [
+                        ['label' => 'Shop', 'icon' => 'folder', 'url' => '#', 'items' => [
                             ['label' => 'Orders', 'icon' => 'file-o', 'url' => ['/shop/order/index'], 'active' => $this->context->id == 'shop/order'],
                             ['label' => 'Products', 'icon' => 'file-o', 'url' => ['/shop/product/index'], 'active' => $this->context->id == 'shop/product'],
                             ['label' => 'Brands', 'icon' => 'file-o', 'url' => ['/shop/brand/index'], 'active' => $this->context->id == 'shop/brand'],

@@ -40,6 +40,11 @@ class Identity implements IdentityInterface, UserCredentialsInterface
         return $this->user->auth_key;
     }
 
+    public function getUsername(): string
+    {
+        return $this->user->username;
+    }
+
     public function validateAuthKey($authKey): bool
     {
         return $this->getAuthKey() === $authKey;
