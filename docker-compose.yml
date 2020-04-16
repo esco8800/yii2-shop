@@ -20,6 +20,8 @@ services:
             - PHP_IDE_CONFIG=${PHP_IDE_CONFIG}
             ### Domain name
             - VIRTUAL_HOST=${VIRTUAL_HOST}
+        depends_on:
+            - redis
         volumes:
             - ./:/var/www/html
             - ./docker/log:/var/www/log
@@ -50,13 +52,18 @@ services:
             - ng-proxy
 
     redis:
-        image: redis:latest
+        image: redis:alpine
         restart: always
+        logging:
+            driver: "json-file"
+            options:
+                max-file: "2"
+                max-size: "5m"
         ports:
              - "6379:6379"
         volumes:
-            - .docker/data/redis/etc/redis.conf:/usr/local/etc/redis/redis.conf
-            - .docker/data/redis:/data
+            - ./docker/data/redis/etc/redis.conf:/usr/local/etc/redis/redis.conf
+            - ./docker/data/redis:/data
         command: redis-server --appendonly yes
         networks:
              - ng-proxy

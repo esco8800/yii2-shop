@@ -29,6 +29,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+//        var_dump(\Yii::$app->security->generatePasswordHash('qwe12345'));
         $this->layout = 'home';
         return $this->render('index');
     }

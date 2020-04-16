@@ -21,8 +21,10 @@ return [
             'ruleTable' => '{{%auth_rules}}',
         ],
         'queue' => [
-            'class' => 'yii\queue\redis\Queue',
+            'class' => 'yii\queue\db\Queue',
+            'mutex' => 'yii\mutex\MysqlMutex',
             'as log' => 'yii\queue\LogBehavior',
+            'channel' => 'default',
         ],
     ],
 ];
