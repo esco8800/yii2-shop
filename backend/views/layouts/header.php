@@ -4,7 +4,7 @@ use yii\helpers\Html;
 /* @var $this \yii\web\View */
 /* @var $content string */
 
-Yii::$app->name = 'Админ-панель'
+Yii::$app->name = 'Админ-панель';
 ?>
 
 <header class="main-header">
