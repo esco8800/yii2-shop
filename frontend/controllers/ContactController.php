@@ -14,6 +14,7 @@ class ContactController extends Controller
     {
         parent::__construct($id, $module, $config);
         $this->service = $service;
+        $this->layout = 'main-electronic';
     }
 
     public function actionIndex()
@@ -30,6 +31,8 @@ class ContactController extends Controller
             }
             return $this->refresh();
         }
+
+        return $this->render('index-electronic');
 
         return $this->render('index', [
             'model' => $form,
