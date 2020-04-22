@@ -9,7 +9,7 @@ use yii\bootstrap\ActiveForm;
 /* @var $model shop\forms\manage\Shop\Product\ProductEditForm */
 
 $this->title = 'Update Product: ' . $product->name;
-$this->params['breadcrumbs'][] = ['label' => 'Products', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Товары', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $product->name, 'url' => ['view', 'id' => $product->id]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
@@ -45,7 +45,7 @@ $this->params['breadcrumbs'][] = 'Update';
     <div class="row">
         <div class="col-md-6">
             <div class="box box-default">
-                <div class="box-header with-border">Categories</div>
+                <div class="box-header with-border">Категории</div>
                 <div class="box-body">
                     <?= $form->field($model->categories, 'main')->dropDownList($model->categories->categoriesList(), ['prompt' => '']) ?>
                     <?= $form->field($model->categories, 'others')->checkboxList($model->categories->categoriesList()) ?>
@@ -54,7 +54,7 @@ $this->params['breadcrumbs'][] = 'Update';
         </div>
         <div class="col-md-6">
             <div class="box box-default">
-                <div class="box-header with-border">Tags</div>
+                <div class="box-header with-border">Теги</div>
                 <div class="box-body">
                     <?= $form->field($model->tags, 'existing')->checkboxList($model->tags->tagsList()) ?>
                     <?= $form->field($model->tags, 'textNew')->textInput() ?>
@@ -64,7 +64,7 @@ $this->params['breadcrumbs'][] = 'Update';
     </div>
 
     <div class="box box-default">
-        <div class="box-header with-border">Characteristics</div>
+        <div class="box-header with-border">Характеристики</div>
         <div class="box-body">
             <?php foreach ($model->values as $i => $value): ?>
                 <?php if ($variants = $value->variantsList()): ?>

@@ -9,7 +9,7 @@ use yii\widgets\DetailView;
 /* @var $order shop\entities\Shop\Order\Order */
 
 $this->title = 'Order ' . $order->id;
-$this->params['breadcrumbs'][] = ['label' => 'Orders', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Заказы', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-view">

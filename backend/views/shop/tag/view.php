@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $tag shop\entities\Shop\Tag */
 
 $this->title = $tag->name;
-$this->params['breadcrumbs'][] = ['label' => 'Tags', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Теги', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-view">

@@ -19,7 +19,7 @@ use yii\widgets\DetailView;
 /* @var $modificationsProvider yii\data\ActiveDataProvider */
 
 $this->title = $product->name;
-$this->params['breadcrumbs'][] = ['label' => 'Products', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Товары', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-view">
@@ -65,11 +65,11 @@ $this->params['breadcrumbs'][] = $this->title;
                                 'value' => ArrayHelper::getValue($product, 'category.name'),
                             ],
                             [
-                                'label' => 'Other categories',
+                                'label' => 'Другие категории',
                                 'value' => implode(', ', ArrayHelper::getColumn($product->categories, 'name')),
                             ],
                             [
-                                'label' => 'Tags',
+                                'label' => 'Теги',
                                 'value' => implode(', ', ArrayHelper::getColumn($product->tags, 'name')),
                             ],
                             'quantity',
@@ -100,7 +100,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="col-md-6">
 
             <div class="box box-default">
-                <div class="box-header with-border">Characteristics</div>
+                <div class="box-header with-border">Характеристики</div>
                 <div class="box-body">
 
                     <?= DetailView::widget([

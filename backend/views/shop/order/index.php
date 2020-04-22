@@ -10,13 +10,13 @@ use yii\grid\GridView;
 /* @var $searchModel backend\forms\Shop\OrderSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Orders';
+$this->title = 'Заказы';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-index">
 
     <p>
-        <?= Html::a('Export', ['export'], ['class' => 'btn btn-primary', 'data-method' => 'post', 'data-confirm' => 'Export?']) ?>
+        <?= Html::a('Выгрузка заказов', ['export'], ['class' => 'btn btn-primary', 'data-method' => 'post', 'data-confirm' => 'Export?']) ?>
     </p>
 
     <div class="box">

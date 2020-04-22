@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $brand shop\entities\Shop\Brand */
 
 $this->title = $brand->name;
-$this->params['breadcrumbs'][] = ['label' => 'Brands', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Бренды', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-view">

@@ -8,7 +8,7 @@ use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 
 $this->title = 'Update Order: ' . $order->id;
-$this->params['breadcrumbs'][] = ['label' => 'Orders', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Заказы', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $order->id, 'url' => ['view', 'id' => $order->id]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>

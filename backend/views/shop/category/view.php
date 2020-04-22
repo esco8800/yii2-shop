@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $category shop\entities\Shop\Category */
 
 $this->title = $category->name;
-$this->params['breadcrumbs'][] = ['label' => 'Categories', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Категории', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-view">

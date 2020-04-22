@@ -8,7 +8,7 @@ use yii\bootstrap\ActiveForm;
 /* @var $model shop\forms\manage\Shop\Product\QuantityForm */
 
 $this->title = 'Price for Product: ' . $product->name;
-$this->params['breadcrumbs'][] = ['label' => 'Products', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Товары', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $product->name, 'url' => ['view', 'id' => $product->id]];
 $this->params['breadcrumbs'][] = 'Price';
 ?>

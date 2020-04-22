@@ -8,7 +8,7 @@ use yii\widgets\DetailView;
 /* @var $characteristic shop\entities\Shop\Characteristic */
 
 $this->title = $characteristic->name;
-$this->params['breadcrumbs'][] = ['label' => 'Characteristics', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Характеристики', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-view">

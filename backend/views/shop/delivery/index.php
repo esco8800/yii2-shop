@@ -9,7 +9,7 @@ use yii\grid\GridView;
 /* @var $searchModel backend\forms\Shop\DeliveryMethodSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Delivery Methods';
+$this->title = 'Методы доставки';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-index">
