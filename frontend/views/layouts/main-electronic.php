@@ -3,6 +3,7 @@
 /* @var $content string */
 
 use frontend\assets\AppAsset;
+use frontend\widgets\Shop\CategoriesWidget;
 use yii\helpers\Html;
 
 AppAsset::register($this);
@@ -218,23 +219,9 @@ AppAsset::register($this);
                         <nav>
                             <ul>
                                 <li><a href="/">Главная</a></li>
+                                <li><a href="/catalog">Каталог</a></li>
                                 <li><a href="/blog">Блог</a></li>
                                 <li><a href="/about">О нас</a></li>
-<!--                                <li class="hot"><a href="shop.html">Bestseller Products</a></li>-->
-<!--                                <li class="new"><a href="shop-list.html">New Products</a></li>-->
-<!--                                <li><a href="shop.html">Special Products</a></li>-->
-<!--                                <li><a href="#">Pages</a>-->
-<!--                                    <ul>-->
-<!--                                        <li><a href="cart.html">Cart</a></li>-->
-<!--                                        <li><a href="checkout.html">Checkout</a></li>-->
-<!--                                        <li><a href="account.html">Create Account</a></li>-->
-<!--                                        <li><a href="my-account.html">My Account</a></li>-->
-<!--                                        <li><a href="product-details.html">Product details</a></li>-->
-<!--                                        <li><a href="shop.html">Shop Grid View</a></li>-->
-<!--                                        <li><a href="shop-list.html">Shop List View</a></li>-->
-<!--                                        <li><a href="wishlist.html">Wish List</a></li>-->
-<!--                                    </ul>-->
-<!--                                </li>-->
                                 <li><a href="/contact">Контакты</a></li>
                             </ul>
                         </nav>
@@ -264,6 +251,241 @@ AppAsset::register($this);
     <!-- End Mobile-menu -->
 </header>
 <!-- HEADER AREA END -->
+
+<!-- START PAGE-CONTENT -->
+<section class="page-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="page-menu">
+                    <li><a href="index.html">Главная</a></li>
+                    <li class="active"><a href="#">Контакты</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <!-- CATEGORY-MENU-LIST START -->
+                <div class="left-category-menu hidden-sm hidden-xs">
+                    <div class="left-product-cat">
+                        <div class="category-heading">
+                            <h2>categories</h2>
+                        </div>
+                        <div class="category-menu-list">
+                            <ul>
+                                <?= CategoriesWidget::widget([
+                                    'active' => $this->params['active_category'] ?? null
+                                ]) ?>
+                                <!-- MENU ACCORDION END -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- END CATEGORY-MENU-LIST -->
+                <!-- START SMALL-PRODUCT-AREA -->
+                <div class="small-product-area carosel-navigation  hidden-sm hidden-xs">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="area-title">
+                                <h3 class="title-group gfont-1">Bestseller</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="active-bestseller sidebar">
+                            <div class="col-xs-12">
+                                <!-- Start Single-Product -->
+                                <div class="single-product">
+                                    <div class="product-img">
+                                        <a href="#">
+                                            <img class="primary-img" src="img/product/small/1.jpg" alt="Product">
+                                        </a>
+                                    </div>
+                                    <div class="product-description">
+                                        <h5><a href="#">Various Versions</a></h5>
+                                        <div class="price-box">
+                                            <span class="price">$99.00</span>
+                                            <span class="old-price">$110.00</span>
+                                        </div>
+                                        <span class="rating">
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star-o"></i>
+												</span>
+                                    </div>
+                                </div>
+                                <!-- End Single-Product -->
+                                <!-- Start Single-Product -->
+                                <div class="single-product">
+                                    <div class="product-img">
+                                        <a href="#">
+                                            <img class="primary-img" src="img/product/small/2.jpg" alt="Product">
+                                        </a>
+                                    </div>
+                                    <div class="product-description">
+                                        <h5><a href="#">Various Versions</a></h5>
+                                        <div class="price-box">
+                                            <span class="price">$99.00</span>
+                                            <span class="old-price">$110.00</span>
+                                        </div>
+                                        <span class="rating">
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star-o"></i>
+												</span>
+                                    </div>
+                                </div>
+                                <!-- End Single-Product -->
+                                <!-- Start Single-Product -->
+                                <div class="single-product">
+                                    <div class="product-img">
+                                        <a href="#">
+                                            <img class="primary-img" src="img/product/small/3.jpg" alt="Product">
+                                        </a>
+                                    </div>
+                                    <div class="product-description">
+                                        <h5><a href="#">Various Versions</a></h5>
+                                        <div class="price-box">
+                                            <span class="price">$99.00</span>
+                                            <span class="old-price">$110.00</span>
+                                        </div>
+                                        <span class="rating">
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star-o"></i>
+												</span>
+                                    </div>
+                                </div>
+                                <!-- End Single-Product -->
+                                <!-- Start Single-Product -->
+                                <div class="single-product">
+                                    <div class="product-img">
+                                        <a href="#">
+                                            <img class="primary-img" src="img/product/small/4.jpg" alt="Product">
+                                        </a>
+                                    </div>
+                                    <div class="product-description">
+                                        <h5><a href="#">Various Versions</a></h5>
+                                        <div class="price-box">
+                                            <span class="price">$99.00</span>
+                                            <span class="old-price">$110.00</span>
+                                        </div>
+                                        <span class="rating">
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star-o"></i>
+												</span>
+                                    </div>
+                                </div>
+                                <!-- End Single-Product -->
+                            </div>
+                            <div class="col-xs-12">
+                                <!-- Start Single-Product -->
+                                <div class="single-product">
+                                    <div class="product-img">
+                                        <a href="#">
+                                            <img class="primary-img" src="img/product/small/5.jpg" alt="Product">
+                                        </a>
+                                    </div>
+                                    <div class="product-description">
+                                        <h5><a href="#">Various Versions</a></h5>
+                                        <div class="price-box">
+                                            <span class="price">$99.00</span>
+                                            <span class="old-price">$110.00</span>
+                                        </div>
+                                        <span class="rating">
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star-o"></i>
+												</span>
+                                    </div>
+                                </div>
+                                <!-- End Single-Product -->
+                                <!-- Start Single-Product -->
+                                <div class="single-product">
+                                    <div class="product-img">
+                                        <a href="#">
+                                            <img class="primary-img" src="img/product/small/6.jpg" alt="Product">
+                                        </a>
+                                    </div>
+                                    <div class="product-description">
+                                        <h5><a href="#">Various Versions</a></h5>
+                                        <div class="price-box">
+                                            <span class="price">$99.00</span>
+                                            <span class="old-price">$110.00</span>
+                                        </div>
+                                        <span class="rating">
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star-o"></i>
+												</span>
+                                    </div>
+                                </div>
+                                <!-- End Single-Product -->
+                                <!-- Start Single-Product -->
+                                <div class="single-product">
+                                    <div class="product-img">
+                                        <a href="#">
+                                            <img class="primary-img" src="img/product/small/7.jpg" alt="Product">
+                                        </a>
+                                    </div>
+                                    <div class="product-description">
+                                        <h5><a href="#">Various Versions</a></h5>
+                                        <div class="price-box">
+                                            <span class="price">$99.00</span>
+                                            <span class="old-price">$110.00</span>
+                                        </div>
+                                        <span class="rating">
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star-o"></i>
+												</span>
+                                    </div>
+                                </div>
+                                <!-- End Single-Product -->
+                                <!-- Start Single-Product -->
+                                <div class="single-product">
+                                    <div class="product-img">
+                                        <a href="#">
+                                            <img class="primary-img" src="img/product/small/8.jpg" alt="Product">
+                                        </a>
+                                    </div>
+                                    <div class="product-description">
+                                        <h5><a href="#">Various Versions</a></h5>
+                                        <div class="price-box">
+                                            <span class="price">$99.00</span>
+                                            <span class="old-price">$110.00</span>
+                                        </div>
+                                        <span class="rating">
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star-o"></i>
+												</span>
+                                    </div>
+                                </div>
+                                <!-- End Single-Product -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END SMALL-PRODUCT-AREA -->
+            </div>
 
 <?= $content ?>
 
