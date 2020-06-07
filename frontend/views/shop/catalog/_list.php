@@ -11,17 +11,15 @@ use yii\widgets\LinkPager;
 <div class="row">
     <div class="col-md-4 col-xs-4">
         <div class="form-group input-group input-group-sm">
-            <label class="input-group-addon" for="input-sort">Sort By:</label>
+            <label class="input-group-addon" for="input-sort">Сортировать:</label>
             <select id="input-sort" class="form-control" onchange="location = this.value;">
                 <?php
                 $values = [
-                    '' => 'Default',
-                    'name' => 'Name (A - Z)',
-                    '-name' => 'Name (Z - A)',
-                    'price' => 'Price (Low &gt; High)',
-                    '-price' => 'Price (High &gt; Low)',
-                    '-rating' => 'Rating (Highest)',
-                    'rating' => 'Rating (Lowest)',
+                    '' => 'По умолчанию',
+                    'name' => 'Имя (A - Я)',
+                    '-name' => 'Имя (Я - A)',
+                    'price' => 'Цена (Дешевле &gt; Дороже)',
+                    '-price' => 'Цена (Дороже &gt; Дешевле)',
                 ];
                 $current = Yii::$app->request->get('sort');
                 ?>
@@ -46,7 +44,7 @@ use yii\widgets\LinkPager;
         </div>
     </div>
 
-    <div class="col-md-4 col-xs-4">
+    <div class="col-md-8 col-xs-8">
         <?php foreach ($dataProvider->getModels() as $product): ?>
             <?= $this->render('_product', [
                 'product' => $product

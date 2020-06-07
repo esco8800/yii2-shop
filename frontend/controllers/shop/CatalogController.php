@@ -137,7 +137,7 @@ class CatalogController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
 
-        $this->layout = 'blank';
+        $this->layout = 'main-electronic-card';
 
         $cartForm = new AddToCartForm($product);
         $reviewForm = new ReviewForm();

@@ -11,7 +11,7 @@ use yii\web\Controller;
 
 class CheckoutController extends Controller
 {
-    public $layout = 'blank';
+    public $layout = 'main-electronic-card';
 
     private $service;
     private $cart;

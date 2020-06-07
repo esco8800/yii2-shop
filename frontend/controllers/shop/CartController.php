@@ -12,7 +12,7 @@ use yii\web\NotFoundHttpException;
 
 class CartController extends Controller
 {
-    public $layout = 'blank';
+    public $layout = 'main-electronic-card';
 
     private $products;
     private $service;
@@ -71,7 +71,7 @@ class CartController extends Controller
             }
         }
 
-        $this->layout = 'blank';
+        $this->layout = 'main-electronic-card';
 
         $form = new AddToCartForm($product);
 

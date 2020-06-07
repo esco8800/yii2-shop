@@ -1,6 +1,10 @@
 <?php
 namespace frontend\controllers;
 
+use shop\readModels\Shop\BrandReadRepository;
+use shop\readModels\Shop\CategoryReadRepository;
+use shop\readModels\Shop\ProductReadRepository;
+use shop\readModels\Shop\TagReadRepository;
 use yii\web\Controller;
 
 /**
@@ -8,6 +12,28 @@ use yii\web\Controller;
  */
 class SiteController extends Controller
 {
+    private $products;
+    private $categories;
+    private $brands;
+    private $tags;
+
+    public function __construct(
+        $id,
+        $module,
+        ProductReadRepository $products,
+        CategoryReadRepository $categories,
+        BrandReadRepository $brands,
+        TagReadRepository $tags,
+        $config = []
+    )
+    {
+        parent::__construct($id, $module, $config);
+        $this->products = $products;
+        $this->categories = $categories;
+        $this->brands = $brands;
+        $this->tags = $tags;
+    }
+
     /**
      * @inheritdoc
      */
@@ -29,8 +55,14 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-//        var_dump(\Yii::$app->security->generatePasswordHash('qwe12345'));
-        $this->layout = 'home';
-        return $this->render('index');
+        $this->layout = 'main-electronic';
+
+        $dataProvider = $this->products->getAll();
+        $category = $this->categories->getRoot();
+
+        return $this->render('index', [
+            'category' => $category,
+            'dataProvider' => $dataProvider,
+        ]);
     }
 }

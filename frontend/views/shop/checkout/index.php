@@ -10,9 +10,9 @@ use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 use yii\helpers\Url;
 
-$this->title = 'Checkout';
-$this->params['breadcrumbs'][] = ['label' => 'Catalog', 'url' => ['/shop/catalog/index']];
-$this->params['breadcrumbs'][] = ['label' => 'Shopping Cart', 'url' => ['/shop/cart/index']];
+$this->title = 'Оформление заказа';
+$this->params['breadcrumbs'][] = ['label' => 'Каталог', 'url' => ['/shop/catalog/index']];
+$this->params['breadcrumbs'][] = ['label' => 'Корзина', 'url' => ['/shop/cart/index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="cabinet-index">
@@ -22,11 +22,11 @@ $this->params['breadcrumbs'][] = $this->title;
         <table class="table table-bordered">
             <thead>
             <tr>
-                <td class="text-left">Product Name</td>
-                <td class="text-left">Model</td>
-                <td class="text-left">Quantity</td>
-                <td class="text-right">Unit Price</td>
-                <td class="text-right">Total</td>
+                <td class="text-left">Название продукта</td>
+                <td class="text-left">Модель</td>
+                <td class="text-left">Количество</td>
+                <td class="text-right">Цена за единицу</td>
+                <td class="text-right">Итоговая цена</td>
             </tr>
             </thead>
             <tbody>
@@ -77,31 +77,31 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php $form = ActiveForm::begin() ?>
 
     <div class="panel panel-default">
-        <div class="panel-heading">Customer</div>
+        <div class="panel-heading">Покупатель</div>
         <div class="panel-body">
-            <?= $form->field($model->customer, 'phone')->textInput() ?>
-            <?= $form->field($model->customer, 'name')->textInput() ?>
+            <?= $form->field($model->customer, 'phone')->textInput()->label('Телефон') ?>
+            <?= $form->field($model->customer, 'name')->textInput()->label('Имя') ?>
         </div>
     </div>
 
     <div class="panel panel-default">
-        <div class="panel-heading">Delivery</div>
+        <div class="panel-heading">Доставка</div>
         <div class="panel-body">
-            <?= $form->field($model->delivery, 'method')->dropDownList($model->delivery->deliveryMethodsList(), ['prompt' => '--- Select ---']) ?>
-            <?= $form->field($model->delivery, 'index')->textInput() ?>
-            <?= $form->field($model->delivery, 'address')->textarea(['rows' => 3]) ?>
+            <?= $form->field($model->delivery, 'method')->dropDownList($model->delivery->deliveryMethodsList(), ['prompt' => '--- Select ---'])->label('Метод') ?>
+            <?= $form->field($model->delivery, 'index')->textInput()->label('Индекс') ?>
+            <?= $form->field($model->delivery, 'address')->textarea(['rows' => 3])->label('Адрес') ?>
         </div>
     </div>
 
     <div class="panel panel-default">
-        <div class="panel-heading">Note</div>
+        <div class="panel-heading">Сообщение</div>
         <div class="panel-body">
-            <?= $form->field($model, 'note')->textarea(['rows' => 3]) ?>
+            <?= $form->field($model, 'note')->textarea(['rows' => 3])->label('Сообщение') ?>
         </div>
     </div>
 
     <div class="form-group">
-        <?= Html::submitButton('Checkout', ['class' => 'btn btn-primary btn-lg btn-block']) ?>
+        <?= Html::submitButton('Оформить заказ', ['class' => 'btn btn-primary btn-lg btn-block']) ?>
     </div>
 
     <?php ActiveForm::end() ?>

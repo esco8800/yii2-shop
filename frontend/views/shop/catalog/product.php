@@ -13,8 +13,8 @@ use yii\helpers\Url;
 
 $this->title = $product->name;
 
-$this->registerMetaTag(['name' =>'description', 'content' => $product->meta->description]);
-$this->registerMetaTag(['name' =>'keywords', 'content' => $product->meta->keywords]);
+$this->registerMetaTag(['name' =>'Описание', 'content' => $product->meta->description]);
+$this->registerMetaTag(['name' =>'Ключевые слова', 'content' => $product->meta->keywords]);
 
 $this->params['breadcrumbs'][] = ['label' => 'Каталог', 'url' => ['index']];
 foreach ($product->category->parents as $parent) {
@@ -50,9 +50,9 @@ MagnificPopupAsset::register($this);
             <?php endforeach; ?>
         </ul>
         <ul class="nav nav-tabs">
-            <li class="active"><a href="#tab-description" data-toggle="tab">Description</a></li>
-            <li><a href="#tab-specification" data-toggle="tab">Specification</a></li>
-            <li><a href="#tab-review" data-toggle="tab">Reviews (0)</a></li>
+            <li class="active"><a href="#tab-description" data-toggle="tab">Описание</a></li>
+            <li><a href="#tab-specification" data-toggle="tab">Характеристики</a></li>
+            <li><a href="#tab-review" data-toggle="tab">Отзывы</a></li>
         </ul>
         <div class="tab-content">
             <div class="tab-pane active" id="tab-description"><p>
@@ -134,7 +134,7 @@ MagnificPopupAsset::register($this);
             <?php if ($product->isAvailable()): ?>
 
                 <hr>
-                <h3>Available Options</h3>
+                <h3>Доступные опции</h3>
 
                 <?php $form = ActiveForm::begin([
                     'action' => ['/shop/cart/add', 'id' => $product->id],
@@ -144,10 +144,10 @@ MagnificPopupAsset::register($this);
                     <?= $form->field($cartForm, 'modification')->dropDownList($modifications, ['prompt' => '--- Select ---']) ?>
                 <?php endif; ?>
 
-                <?= $form->field($cartForm, 'quantity')->textInput() ?>
+                <?= $form->field($cartForm, 'quantity')->textInput()->label('Количество') ?>
 
                 <div class="form-group">
-                    <?= Html::submitButton('Add to Cart', ['class' => 'btn btn-primary btn-lg btn-block']) ?>
+                    <?= Html::submitButton('Добавить в корзину', ['class' => 'btn btn-primary btn-lg btn-block']) ?>
                 </div>
 
                 <?php ActiveForm::end() ?>
@@ -162,14 +162,7 @@ MagnificPopupAsset::register($this);
 
         </div>
         <div class="rating">
-            <p>
-                <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
-                <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
-                <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
-                <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
-                <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
-                <a href="" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;">0 reviews</a> / <a href="" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;">Write a review</a></p>
-            <hr>
+
             <!-- AddThis Button BEGIN -->
             <div class="addthis_toolbox addthis_default_style" data-url="/index.php?route=product/product&amp;product_id=47"><a class="addthis_button_facebook_like" fb:like:layout="button_count"></a> <a class="addthis_button_tweet"></a> <a class="addthis_button_pinterest_pinit"></a> <a class="addthis_counter addthis_pill_style"></a></div>
             <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-515eeaf54693130e"></script>

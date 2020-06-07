@@ -8,7 +8,7 @@ use shop\helpers\WeightHelper;
 use yii\helpers\Html;
 use yii\helpers\Url;
 
-$this->title = 'Shopping Cart';
+$this->title = 'Корзина';
 $this->params['breadcrumbs'][] = ['label' => 'Каталог', 'url' => ['/shop/catalog/index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -19,12 +19,12 @@ $this->params['breadcrumbs'][] = $this->title;
             <table class="table table-bordered">
                 <thead>
                 <tr>
-                    <td class="text-center" style="width: 100px">Image</td>
-                    <td class="text-left">Product Name</td>
-                    <td class="text-left">Model</td>
-                    <td class="text-left">Quantity</td>
-                    <td class="text-right">Unit Price</td>
-                    <td class="text-right">Total</td>
+                    <td class="text-center" style="width: 100px">Картинка</td>
+                    <td class="text-left">Название</td>
+                    <td class="text-left">Модель</td>
+                    <td class="text-left">Количество</td>
+                    <td class="text-right">Цена за единицу</td>
+                    <td class="text-right">Итоговая цена</td>
                 </tr>
                 </thead>
                 <tbody>
@@ -96,9 +96,9 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
     </div>
     <div class="buttons clearfix">
-        <div class="pull-left"><a href="<?= Url::to('/shop/catalog/index') ?>" class="btn btn-default">Continue Shopping</a></div>
+        <div class="pull-left"><a href="<?= Url::to('/shop/catalog/index') ?>" class="btn btn-default">Продолжить покупки</a></div>
         <?php if ($cart->getItems()): ?>
-            <div class="pull-right"><a href="<?= Url::to('/shop/checkout/index') ?>" class="btn btn-primary">Checkout</a></div>
+            <div class="pull-right"><a href="<?= Url::to('/shop/checkout/index') ?>" class="btn btn-primary">Оформить заказ</a></div>
         <?php endif; ?>
     </div>
 </div>

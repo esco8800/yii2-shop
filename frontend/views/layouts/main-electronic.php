@@ -325,7 +325,8 @@ AppAsset::register($this);
             </div>
 
 <?= $content ?>
-
+        </section>
+        </section>
 <!-- FOOTER-AREA START -->
 <footer class="footer-area">
     <!-- Footer Start -->
@@ -338,9 +339,9 @@ AppAsset::register($this);
                     </div>
                     <nav>
                         <ul class="footer-content">
-                            <li><a href="my-account.html">Личный кабинет</a></li>
+                            <li><a href="#">Личный кабинет</a></li>
                             <li><a href="#">История заказов</a></li>
-                            <li><a href="wishlist">Список желания</a></li>
+                            <li><a href="#">Список желания</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -350,8 +351,8 @@ AppAsset::register($this);
                     </div>
                     <nav>
                         <ul class="footer-content">
-                            <li><a href="contact.html">Связь с нами</a></li>
-                            <li><a href="about.html">О нас</a></li>
+                            <li><a href="#">Связь с нами</a></li>
+                            <li><a href="#">О нас</a></li>
                             <li><a href="#">Инфомратици о доставки</a></li>
                             <li><a href="#">Политика конфиденциальности</a></li>
                         </ul>
