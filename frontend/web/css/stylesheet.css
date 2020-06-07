@@ -149,6 +149,7 @@ div.required .control-label:before {
 	margin-bottom: 10px;
 }
 #cart > .btn {
+	border: none;
 	font-size: 12px;
 	line-height: 18px;
 	color: #FFF;

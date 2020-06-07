@@ -10,7 +10,11 @@ use yii\helpers\Url;
 <div id="cart" class="btn-group btn-block">
     <button type="button" data-toggle="dropdown" data-loading-text="Loading..." class="btn btn-inverse btn-block btn-lg dropdown-toggle" aria-expanded="false">
         <i class="fa fa-shopping-cart"></i>
-        <span id="cart-total"><?= $cart->getAmount() ?> item(s) - <?= PriceHelper::format($cart->getCost()->getTotal()) ?></span>
+        <span id="cart-total">
+            <?php if(false): ?>
+                <?= $cart->getAmount() ?> item(s) - <?= PriceHelper::format($cart->getCost()->getTotal()) ?>
+            <?php endif; ?>
+        </span>
     </button>
     <ul class="dropdown-menu pull-right">
         <li>
@@ -63,9 +67,7 @@ use yii\helpers\Url;
                 </table>
                 <p class="text-right"><a
                         href="<?= Url::to(['/shop/cart/index']) ?>"><strong><i
-                                class="fa fa-shopping-cart"></i> View Cart</strong></a>&nbsp;&nbsp;&nbsp;<a
-                        href="/index.php?route=checkout/checkout"><strong><i
-                                class="fa fa-share"></i> Checkout</strong></a></p>
+                                class="fa fa-shopping-cart"></i>Оформление заказа</strong></a>&nbsp;&nbsp;&nbsp;
             </div>
         </li>
     </ul>

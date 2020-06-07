@@ -16,7 +16,7 @@ $this->title = $product->name;
 $this->registerMetaTag(['name' =>'description', 'content' => $product->meta->description]);
 $this->registerMetaTag(['name' =>'keywords', 'content' => $product->meta->keywords]);
 
-$this->params['breadcrumbs'][] = ['label' => 'Catalog', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Каталог', 'url' => ['index']];
 foreach ($product->category->parents as $parent) {
     if (!$parent->isRoot()) {
         $this->params['breadcrumbs'][] = ['label' => $parent->name, 'url' => ['category', 'id' => $parent->id]];
@@ -177,6 +177,7 @@ MagnificPopupAsset::register($this);
         </div>
     </div>
 </div>
+
 
 <?php $js = <<<EOD
 $('.thumbnails').magnificPopup({

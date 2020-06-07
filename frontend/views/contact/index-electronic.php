@@ -20,10 +20,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="contact-message">
                     <fieldset>
                         <form method="post" action="mail.php">
-                            <legend>Contact Form</legend>
+                            <legend>Форма обратной связи</legend>
                             <div class="form-group form-horizontal">
                                 <div class="row">
-                                    <label class="col-sm-2 control-label"><sup>*</sup>Your Name</label>
+                                    <label class="col-sm-2 control-label"><sup>*</sup>Ваше имя</label>
                                     <div class="col-sm-10">
                                         <input type="text" class="form-control" name="name"/>
                                     </div>
@@ -31,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             </div>
                             <div class="form-group form-horizontal">
                                 <div class="row">
-                                    <label class="col-sm-2 control-label"><sup>*</sup>E-Mail Address</label>
+                                    <label class="col-sm-2 control-label"><sup>*</sup>E-Mail</label>
                                     <div class="col-sm-10">
                                         <input class="form-control" type="email" name="email"/>
                                     </div>
@@ -39,14 +39,14 @@ $this->params['breadcrumbs'][] = $this->title;
                             </div>
                             <div class="form-group form-horizontal">
                                 <div class="row">
-                                    <label class="col-sm-2 control-label"><sup>*</sup>Enquiry</label>
+                                    <label class="col-sm-2 control-label"><sup>*</sup>Сообщение</label>
                                     <div class="col-sm-10">
                                         <textarea class="form-control" rows="10" name="message"></textarea>
                                     </div>
                                 </div>
                             </div>
                             <div class="buttons pull-right">
-                                <input class="btn btn-primary" type="submit" value="submit" name="submit"/>
+                                <button class="btn btn-primary" type="submit">Отправить</button>
                             </div>
                         </form>
                     </fieldset>

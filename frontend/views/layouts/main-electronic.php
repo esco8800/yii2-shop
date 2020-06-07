@@ -5,6 +5,8 @@
 use frontend\assets\AppAsset;
 use frontend\widgets\Shop\CategoriesWidget;
 use yii\helpers\Html;
+use yii\helpers\Url;
+use frontend\widgets\Shop\CartWidget;
 
 AppAsset::register($this);
 ?>
@@ -41,10 +43,13 @@ AppAsset::register($this);
                     <!-- Start Top-Link -->
                     <div class="top-link">
                         <ul class="link">
-                            <li><a href="my-account.html"><i class="fa fa-user"></i> Мой аккаунт</a></li>
-                            <li><a href="wishlist.html"><i class="fa fa-heart"></i> Список желаний</a></li>
-                            <li><a href="checkout.html"><i class="fa fa-share"></i> Оформление заказа</a></li>
-                            <li><a href="account.html"><i class="fa fa-unlock-alt"></i> Вход/регистрация</a></li>
+                            <li><a href="/cabinet"><i class="fa fa-user"></i> Мой аккаунт</a></li>
+                            <li><a href="/cabinet/wishlist"><i class="fa fa-heart"></i> Список желаний</a></li>
+                            <?php if (Yii::$app->user->isGuest): ?>
+                                <li><a href="/login"><i class="fa fa-unlock-alt"></i> Вход/регистрация</a></li>
+                            <?php else: ?>
+                                <li><a href="<?= Html::encode(Url::to(['/auth/auth/logout'])) ?>"><i class="fa fa-unlock-alt"></i>Выход</a></li>
+                            <?php endif; ?>
                         </ul>
                     </div>
                     <!-- End Top-Link -->
@@ -118,27 +123,6 @@ AppAsset::register($this);
                 <div class="col-md-9 col-sm-12">
                     <div class="quick-access">
                         <div class="search-by-category">
-                            <div class="search-container">
-                                <select>
-                                    <option class="all-cate">All Categories</option>
-                                    <optgroup  class="cate-item-head" label="Cameras & Photography">
-                                        <option class="cate-item-title">Handbags</option>
-                                        <option class="c-item">Blouses And Shirts</option>
-                                        <option class="c-item">Clouthes</option>
-                                    </optgroup>
-                                    <optgroup  class="cate-item-head" label="Laptop & Computer">
-                                        <option class="cate-item-title">Apple</option>
-                                        <option class="c-item">Dell</option>
-                                        <option class="c-item">Hp</option>
-                                        <option class="c-item">Sony</option>
-                                    </optgroup>
-                                    <optgroup  class="cate-item-head" label="Electronic">
-                                        <option class="c-item">Mobile</option>
-                                        <option class="c-item">Speaker</option>
-                                        <option class="c-item">Headphone</option>
-                                    </optgroup>
-                                </select>
-                            </div>
                             <div class="header-search">
                                 <form action="#">
                                     <input type="text" placeholder="Поиск">
@@ -147,61 +131,7 @@ AppAsset::register($this);
                             </div>
                         </div>
                         <div class="top-cart">
-                            <ul>
-                                <li>
-                                    <a href="cart.html">
-                                        <span class="cart-icon"><i class="fa fa-shopping-cart"></i></span>
-                                        <span class="cart-total">
-			                    					<span class="cart-title">shopping cart</span>
-				                    				<span class="cart-item">2 item(s)- </span>
-				                    				<span class="top-cart-price">$365.00</span>
-			                    				</span>
-                                    </a>
-                                    <div class="mini-cart-content">
-                                        <div class="cart-img-details">
-                                            <div class="cart-img-photo">
-                                                <a href="#"><img src="img/product/total-cart.jpg" alt="#"></a>
-                                            </div>
-                                            <div class="cart-img-content">
-                                                <a href="#"><h4>Prod Aldults</h4></a>
-                                                <span>
-															<strong class="text-right">1 x</strong>
-															<strong class="cart-price text-right">$180.00</strong>
-														</span>
-                                            </div>
-                                            <div class="pro-del">
-                                                <a href="#"><i class="fa fa-times"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="clear"></div>
-                                        <div class="cart-img-details">
-                                            <div class="cart-img-photo">
-                                                <a href="#"><img src="img/product/total-cart2.jpg" alt="#"></a>
-                                            </div>
-                                            <div class="cart-img-content">
-                                                <a href="#"><h4>Fact Prone</h4></a>
-                                                <span>
-															<strong class="text-right">1 x</strong>
-															<strong class="cart-price text-right">$185.00</strong>
-														</span>
-                                            </div>
-                                            <div class="pro-del">
-                                                <a href="#"><i class="fa fa-times"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="cart-inner-bottom">
-													<span class="total">
-														Total:
-														<span class="amount">$550.00</span>
-													</span>
-                                            <span class="cart-button-top">
-														<a href="cart.html">View Cart</a>
-														<a href="checkout.html">Checkout</a>
-													</span>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
+                            <?= CartWidget::widget() ?>
                         </div>
                     </div>
                 </div>
@@ -221,7 +151,6 @@ AppAsset::register($this);
                                 <li><a href="/">Главная</a></li>
                                 <li><a href="/catalog">Каталог</a></li>
                                 <li><a href="/blog">Блог</a></li>
-                                <li><a href="/about">О нас</a></li>
                                 <li><a href="/contact">Контакты</a></li>
                             </ul>
                         </nav>
@@ -269,7 +198,7 @@ AppAsset::register($this);
                 <div class="left-category-menu hidden-sm hidden-xs">
                     <div class="left-product-cat">
                         <div class="category-heading">
-                            <h2>categories</h2>
+                            <h2>Категории</h2>
                         </div>
                         <div class="category-menu-list">
                             <ul>
@@ -287,7 +216,7 @@ AppAsset::register($this);
                     <div class="row">
                         <div class="col-md-12">
                             <div class="area-title">
-                                <h3 class="title-group gfont-1">Bestseller</h3>
+                                <h3 class="title-group gfont-1">Хит продаж</h3>
                             </div>
                         </div>
                     </div>
@@ -302,10 +231,10 @@ AppAsset::register($this);
                                         </a>
                                     </div>
                                     <div class="product-description">
-                                        <h5><a href="#">Various Versions</a></h5>
+                                        <h5><a href="#">Ноутбук леново С2</a></h5>
                                         <div class="price-box">
-                                            <span class="price">$99.00</span>
-                                            <span class="old-price">$110.00</span>
+                                            <span class="price">27 000 Р</span>
+                                            <span class="old-price">39 000 Р</span>
                                         </div>
                                         <span class="rating">
 													<i class="fa fa-star"></i>
@@ -325,10 +254,10 @@ AppAsset::register($this);
                                         </a>
                                     </div>
                                     <div class="product-description">
-                                        <h5><a href="#">Various Versions</a></h5>
+                                        <h5><a href="#">Монитор  Samsung</a></h5>
                                         <div class="price-box">
-                                            <span class="price">$99.00</span>
-                                            <span class="old-price">$110.00</span>
+                                            <span class="price">7 000 Р</span>
+                                            <span class="old-price">11 000 Р</span>
                                         </div>
                                         <span class="rating">
 													<i class="fa fa-star"></i>
@@ -348,10 +277,10 @@ AppAsset::register($this);
                                         </a>
                                     </div>
                                     <div class="product-description">
-                                        <h5><a href="#">Various Versions</a></h5>
+                                        <h5><a href="#">Колонки sven</a></h5>
                                         <div class="price-box">
-                                            <span class="price">$99.00</span>
-                                            <span class="old-price">$110.00</span>
+                                            <span class="price">1 500 Р</span>
+                                            <span class="old-price">4 000 Р</span>
                                         </div>
                                         <span class="rating">
 													<i class="fa fa-star"></i>
@@ -371,104 +300,10 @@ AppAsset::register($this);
                                         </a>
                                     </div>
                                     <div class="product-description">
-                                        <h5><a href="#">Various Versions</a></h5>
+                                        <h5><a href="#">Наушники dexp</a></h5>
                                         <div class="price-box">
-                                            <span class="price">$99.00</span>
-                                            <span class="old-price">$110.00</span>
-                                        </div>
-                                        <span class="rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star-o"></i>
-												</span>
-                                    </div>
-                                </div>
-                                <!-- End Single-Product -->
-                            </div>
-                            <div class="col-xs-12">
-                                <!-- Start Single-Product -->
-                                <div class="single-product">
-                                    <div class="product-img">
-                                        <a href="#">
-                                            <img class="primary-img" src="img/product/small/5.jpg" alt="Product">
-                                        </a>
-                                    </div>
-                                    <div class="product-description">
-                                        <h5><a href="#">Various Versions</a></h5>
-                                        <div class="price-box">
-                                            <span class="price">$99.00</span>
-                                            <span class="old-price">$110.00</span>
-                                        </div>
-                                        <span class="rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star-o"></i>
-												</span>
-                                    </div>
-                                </div>
-                                <!-- End Single-Product -->
-                                <!-- Start Single-Product -->
-                                <div class="single-product">
-                                    <div class="product-img">
-                                        <a href="#">
-                                            <img class="primary-img" src="img/product/small/6.jpg" alt="Product">
-                                        </a>
-                                    </div>
-                                    <div class="product-description">
-                                        <h5><a href="#">Various Versions</a></h5>
-                                        <div class="price-box">
-                                            <span class="price">$99.00</span>
-                                            <span class="old-price">$110.00</span>
-                                        </div>
-                                        <span class="rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star-o"></i>
-												</span>
-                                    </div>
-                                </div>
-                                <!-- End Single-Product -->
-                                <!-- Start Single-Product -->
-                                <div class="single-product">
-                                    <div class="product-img">
-                                        <a href="#">
-                                            <img class="primary-img" src="img/product/small/7.jpg" alt="Product">
-                                        </a>
-                                    </div>
-                                    <div class="product-description">
-                                        <h5><a href="#">Various Versions</a></h5>
-                                        <div class="price-box">
-                                            <span class="price">$99.00</span>
-                                            <span class="old-price">$110.00</span>
-                                        </div>
-                                        <span class="rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star-o"></i>
-												</span>
-                                    </div>
-                                </div>
-                                <!-- End Single-Product -->
-                                <!-- Start Single-Product -->
-                                <div class="single-product">
-                                    <div class="product-img">
-                                        <a href="#">
-                                            <img class="primary-img" src="img/product/small/8.jpg" alt="Product">
-                                        </a>
-                                    </div>
-                                    <div class="product-description">
-                                        <h5><a href="#">Various Versions</a></h5>
-                                        <div class="price-box">
-                                            <span class="price">$99.00</span>
-                                            <span class="old-price">$110.00</span>
+                                            <span class="price">1 200 Р</span>
+                                            <span class="old-price">3 700 Р</span>
                                         </div>
                                         <span class="rating">
 													<i class="fa fa-star"></i>
@@ -497,29 +332,26 @@ AppAsset::register($this);
             <div class="row">
                 <div class="col-xs-12 col-sm-4 col-md-3">
                     <div class="footer-title">
-                        <h5>My Account</h5>
+                        <h5>Мой аккаунт</h5>
                     </div>
                     <nav>
                         <ul class="footer-content">
-                            <li><a href="my-account.html">My Account</a></li>
-                            <li><a href="#">Order History</a></li>
-                            <li><a href="wishlist">Wish List</a></li>
-                            <li><a href="#">Search Terms</a></li>
-                            <li><a href="#">Returns</a></li>
+                            <li><a href="my-account.html">Личный кабинет</a></li>
+                            <li><a href="#">История заказов</a></li>
+                            <li><a href="wishlist">Список желания</a></li>
                         </ul>
                     </nav>
                 </div>
                 <div class="col-xs-12 col-sm-4 col-md-3">
                     <div class="footer-title">
-                        <h5>Customer Service</h5>
+                        <h5>Пользовательский сервис</h5>
                     </div>
                     <nav>
                         <ul class="footer-content">
-                            <li><a href="contact.html">Contact Us</a></li>
-                            <li><a href="about.html">About Us</a></li>
-                            <li><a href="#">Delivery Information</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Terms & Conditions</a></li>
+                            <li><a href="contact.html">Связь с нами</a></li>
+                            <li><a href="about.html">О нас</a></li>
+                            <li><a href="#">Инфомратици о доставки</a></li>
+                            <li><a href="#">Политика конфиденциальности</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -577,8 +409,34 @@ AppAsset::register($this);
 <!--    </div>-->
     <!-- Copyright-area End -->
 </footer>
+<a href="#" id="scroll_top" title="Наверх"></a>
 <!-- FOOTER-AREA END -->
 
+<style>
+    #cart > .btn {
+        margin-top: 3px;
+        border: none;
+        font-size: 12px;
+        line-height: 18px;
+        color: #FFF;
+    }
+    #scroll_top {
+        color: #26acce ;
+        display: none;
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 1000;
+        width: 32px;
+        height: 32px;
+        background: url(https://snipp.ru/img/scroll_top.png) 50% 50% no-repeat;
+        border-radius: 50%;
+        opacity: 0.5;
+    }
+    #scroll_top:hover {
+        opacity: 1;
+    }
+</style>
 
 <!-- jquery
 ============================================ -->
@@ -598,7 +456,7 @@ AppAsset::register($this);
 <script src="js/owl.carousel.min.js"></script>
 <!-- scrollUp JS
 ============================================ -->
-<script src="js/jquery.scrollUp.min.js"></script>
+<!--<script src="js/jquery.scrollUp.min.js"></script>-->
 <!-- countdon.min JS
 ============================================ -->
 <script src="js/countdon.min.js"></script>
@@ -629,6 +487,21 @@ AppAsset::register($this);
 			}
 
 			google.maps.event.addDomListener(window, 'load', initialize);
+
+			$(function(){
+                $(window).scroll(function(){
+                    if($(window).scrollTop() > 100) {
+                        $('#scroll_top').show();
+                    } else {
+                        $('#scroll_top').hide();
+                    }
+                });
+
+                $('#scroll_top').click(function(){
+                    $('html, body').animate({scrollTop: 0}, 600);
+                    return false;
+                });
+            });
 		</script>
 
 <!-- plugins JS
