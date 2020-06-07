@@ -9,7 +9,7 @@ use shop\forms\auth\SignupForm;
 
 class SignupController extends Controller
 {
-    public $layout = 'cabinet';
+    public $layout = 'main-electronic-account';
 
     private $service;
 

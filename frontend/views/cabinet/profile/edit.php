@@ -7,8 +7,8 @@
 use kartik\form\ActiveForm;
 use yii\helpers\Html;
 
-$this->title = 'Edit Profile';
-$this->params['breadcrumbs'][] = ['label' => 'Cabinet', 'url' => ['cabinet/default/index']];
+$this->title = 'Редактирование профиля';
+$this->params['breadcrumbs'][] = ['label' => 'Кабинет', 'url' => ['cabinet/default/index']];
 $this->params['breadcrumbs'][] = 'Profile';
 ?>
 <div class="user-update">
@@ -22,7 +22,7 @@ $this->params['breadcrumbs'][] = 'Profile';
             <?= $form->field($model, 'phone', ['addon' => ['prepend' => ['content'=>'+']]])->textInput(['maxLength' => true]) ?>
 
             <div class="form-group">
-                <?= Html::submitButton('Save', ['class' => 'btn btn-primary']) ?>
+                <?= Html::submitButton('Сохранить', ['class' => 'btn btn-primary']) ?>
             </div>
 
             <?php ActiveForm::end(); ?>

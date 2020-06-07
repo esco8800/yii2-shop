@@ -200,6 +200,9 @@ AppAsset::register($this);
         </div>
         <aside id="column-right" class="col-sm-3 hidden-xs">
             <div class="list-group">
+                <a href="<?= Html::encode(Url::to(['/auth/auth/login'])) ?>" class="list-group-item">Вход</a>
+                <a href="<?= Html::encode(Url::to(['/auth/signup/request'])) ?>" class="list-group-item">Регистрация</a>
+                <a href="<?= Html::encode(Url::to(['/auth/reset/request'])) ?>" class="list-group-item">Восстановление пароля</a>
                 <a href="<?= Html::encode(Url::to(['/cabinet'])) ?>" class="list-group-item">Мой аккаунт</a>
                 <a href="<?= Html::encode(Url::to(['/cabinet/wishlist/index'])) ?>" class="list-group-item">Список желаний</a>
                 <a href="<?= Html::encode(Url::to(['/cabinet/order'])) ?>" class="list-group-item">История заказов</a>

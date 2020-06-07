@@ -10,7 +10,7 @@ use shop\forms\auth\ResetPasswordForm;
 
 class ResetController extends Controller
 {
-    public $layout = 'cabinet';
+    public $layout = 'main-electronic-account';
 
     private $service;
 
