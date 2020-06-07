@@ -29,6 +29,7 @@ $this->params['active_category'] = $category;
 ]) ?>
 
 <?php if (trim($category->description)): ?>
+<?php if (false): ?>
     <div class="panel panel-default">
         <div class="panel-body">
             <?= Yii::$app->formatter->asHtml($category->description, [
@@ -41,9 +42,12 @@ $this->params['active_category'] = $category;
         </div>
     </div>
 <?php endif; ?>
+<?php endif; ?>
 
 <?= $this->render('_list', [
     'dataProvider' => $dataProvider
 ]) ?>
+
+</section>
 
 

@@ -7,7 +7,7 @@ use yii\web\Controller;
 
 class DefaultController extends Controller
 {
-    public $layout = 'cabinet';
+    public $layout = 'main-electronic-account';
 
     public function behaviors(): array
     {

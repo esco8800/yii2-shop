@@ -9,7 +9,7 @@ use yii\web\NotFoundHttpException;
 
 class OrderController extends Controller
 {
-    public $layout = 'cabinet';
+    public $layout = 'main-electronic-account';
     private $orders;
 
     public function __construct($id, $module, OrderReadRepository $orders, $config = [])

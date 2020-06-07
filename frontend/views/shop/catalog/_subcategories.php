@@ -7,6 +7,7 @@ use yii\helpers\Url;
 ?>
 
 <?php if ($category->children): ?>
+    <?php if (false): ?>
     <div class="panel panel-default">
         <div class="panel-body">
             <?php foreach ($category->children as $child): ?>
@@ -14,4 +15,5 @@ use yii\helpers\Url;
             <?php endforeach; ?>
         </div>
     </div>
+    <?php endif; ?>
 <?php endif; ?>

@@ -43,7 +43,7 @@ class PostController extends Controller
     public function actionIndex()
     {
         $dataProvider = $this->posts->getAll();
-
+        $this->layout = 'main-electronic-account';
         return $this->render('index', [
             'dataProvider' => $dataProvider,
         ]);
@@ -94,6 +94,7 @@ class PostController extends Controller
      */
     public function actionPost($id)
     {
+        $this->layout = 'main-electronic-account';
         if (!$post = $this->posts->find($id)) {
             throw new NotFoundHttpException('The requested page does not exist.');
         }

@@ -11,7 +11,7 @@ use yii\web\Controller;
 
 class WishlistController extends Controller
 {
-    public $layout = 'cabinet';
+    public $layout = 'main-electronic-account';
     private $service;
     private $products;
 

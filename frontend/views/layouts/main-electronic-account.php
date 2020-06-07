@@ -3,9 +3,9 @@
 /* @var $content string */
 
 use frontend\assets\AppAsset;
+use yii\widgets\Breadcrumbs;
 use frontend\widgets\Shop\CategoriesWidget;
 use yii\helpers\Html;
-use yii\widgets\Breadcrumbs;
 use yii\helpers\Url;
 use frontend\widgets\Shop\CartWidget;
 
@@ -194,138 +194,18 @@ AppAsset::register($this);
                 </ul>
             </div>
         </div>
-        <section class="row">
-            <div class="col-md-3">
-                <!-- CATEGORY-MENU-LIST START -->
-                <div class="left-category-menu hidden-sm hidden-xs">
-                    <div class="left-product-cat">
-                        <div class="category-heading">
-                            <h2>Категории</h2>
-                        </div>
-                        <div class="category-menu-list">
-                            <ul>
-                                <?= CategoriesWidget::widget([
-                                    'active' => $this->params['active_category'] ?? null
-                                ]) ?>
-                                <!-- MENU ACCORDION END -->
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!-- END CATEGORY-MENU-LIST -->
-                <!-- START SMALL-PRODUCT-AREA -->
-                <div class="small-product-area carosel-navigation  hidden-sm hidden-xs">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="area-title">
-                                <h3 class="title-group gfont-1">Хит продаж</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="active-bestseller sidebar">
-                            <div class="col-xs-12">
-                                <!-- Start Single-Product -->
-                                <div class="single-product">
-                                    <div class="product-img">
-                                        <a href="#">
-                                            <img class="primary-img" src="/img/product/small/1.jpg" alt="Product">
-                                        </a>
-                                    </div>
-                                    <div class="product-description">
-                                        <h5><a href="#">Ноутбук леново С2</a></h5>
-                                        <div class="price-box">
-                                            <span class="price">27 000 Р</span>
-                                            <span class="old-price">39 000 Р</span>
-                                        </div>
-                                        <span class="rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star-o"></i>
-												</span>
-                                    </div>
-                                </div>
-                                <!-- End Single-Product -->
-                                <!-- Start Single-Product -->
-                                <div class="single-product">
-                                    <div class="product-img">
-                                        <a href="#">
-                                            <img class="primary-img" src="/img/product/small/2.jpg" alt="Product">
-                                        </a>
-                                    </div>
-                                    <div class="product-description">
-                                        <h5><a href="#">Монитор  Samsung</a></h5>
-                                        <div class="price-box">
-                                            <span class="price">7 000 Р</span>
-                                            <span class="old-price">11 000 Р</span>
-                                        </div>
-                                        <span class="rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star-o"></i>
-												</span>
-                                    </div>
-                                </div>
-                                <!-- End Single-Product -->
-                                <!-- Start Single-Product -->
-                                <div class="single-product">
-                                    <div class="product-img">
-                                        <a href="#">
-                                            <img class="primary-img" src="/img/product/small/3.jpg" alt="Product">
-                                        </a>
-                                    </div>
-                                    <div class="product-description">
-                                        <h5><a href="#">Колонки sven</a></h5>
-                                        <div class="price-box">
-                                            <span class="price">1 500 Р</span>
-                                            <span class="old-price">4 000 Р</span>
-                                        </div>
-                                        <span class="rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star-o"></i>
-												</span>
-                                    </div>
-                                </div>
-                                <!-- End Single-Product -->
-                                <!-- Start Single-Product -->
-                                <div class="single-product">
-                                    <div class="product-img">
-                                        <a href="#">
-                                            <img class="primary-img" src="/img/product/small/4.jpg" alt="Product">
-                                        </a>
-                                    </div>
-                                    <div class="product-description">
-                                        <h5><a href="#">Наушники dexp</a></h5>
-                                        <div class="price-box">
-                                            <span class="price">1 200 Р</span>
-                                            <span class="old-price">3 700 Р</span>
-                                        </div>
-                                        <span class="rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star-o"></i>
-												</span>
-                                    </div>
-                                </div>
-                                <!-- End Single-Product -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- END SMALL-PRODUCT-AREA -->
+
+        <div id="content" class="col-sm-9">
+            <?= $content ?>
+        </div>
+        <aside id="column-right" class="col-sm-3 hidden-xs">
+            <div class="list-group">
+                <a href="<?= Html::encode(Url::to(['/cabinet'])) ?>" class="list-group-item">Мой аккаунт</a>
+                <a href="<?= Html::encode(Url::to(['/cabinet/wishlist/index'])) ?>" class="list-group-item">Список желаний</a>
+                <a href="<?= Html::encode(Url::to(['/cabinet/order'])) ?>" class="list-group-item">История заказов</a>
             </div>
-
-<?= $content ?>
-
+        </aside>
+</section>
 <!-- FOOTER-AREA START -->
 <footer class="footer-area">
     <!-- Footer Start -->

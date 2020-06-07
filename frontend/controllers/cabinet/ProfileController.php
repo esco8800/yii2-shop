@@ -13,6 +13,8 @@ class ProfileController extends Controller
 {
     private $service;
 
+    public $layout = 'main-electronic-account';
+
     public function __construct($id, $module, ProfileService $service, $config = [])
     {
         parent::__construct($id, $module, $config);

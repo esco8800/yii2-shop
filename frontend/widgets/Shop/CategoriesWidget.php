@@ -28,7 +28,7 @@ class CategoriesWidget extends Widget
             $indent = ($view->category->depth > 1 ? str_repeat('&nbsp;&nbsp;&nbsp;', $view->category->depth - 1) . '- ' : '');
             $active = $this->active && ($this->active->id == $view->category->id || $this->active->isChildOf($view->category));
             return Html::a(
-                $indent . Html::encode($view->category->name) . ' (' . $view->count . ')',
+                $indent . Html::encode($view->category->name),
                 ['/shop/catalog/category', 'id' => $view->category->id],
                 ['class' => $active ? 'list-group-item active' : 'list-group-item']
             );

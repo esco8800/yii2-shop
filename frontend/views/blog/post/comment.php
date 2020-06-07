@@ -9,7 +9,7 @@ use yii\helpers\Html;
 
 $this->title = 'Comment';
 
-$this->params['breadcrumbs'][] = ['label' => 'Blog', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Блог', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $post->category->name, 'url' => ['category', 'slug' => $post->category->slug]];
 $this->params['breadcrumbs'][] = ['label' => $post->title, 'url' => ['post', 'id' => $post->id]];
 $this->params['breadcrumbs'][] = $this->title;

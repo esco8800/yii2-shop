@@ -132,10 +132,10 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'nav navbar-nav'],
         'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'Catalog', 'url' => ['/shop/catalog/index']],
-            ['label' => 'Blog', 'url' => ['/blog/post/index']],
-            ['label' => 'Contact', 'url' => ['/contact/index']],
+            ['label' => 'Главная', 'url' => ['/site/index']],
+            ['label' => 'Каталог', 'url' => ['/shop/catalog/index']],
+            ['label' => 'Блог', 'url' => ['/blog/post/index']],
+            ['label' => 'Контакты', 'url' => ['/contact/index']],
         ],
     ]);
     NavBar::end();

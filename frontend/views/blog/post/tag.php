@@ -8,7 +8,7 @@ use yii\helpers\Html;
 
 $this->title = 'Posts with tag ' . $tag->name;
 
-$this->params['breadcrumbs'][] = ['label' => 'Blog', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Блог', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $tag->name;
 ?>
 
