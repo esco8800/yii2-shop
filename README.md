@@ -1,2 +1,2 @@
-Yii 2 Demo Shop
+Yii 2 Demo Shop -
 ===============================
